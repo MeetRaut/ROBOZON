@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:sans-serif; 
+}
+header{
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://img.freepik.com/free-vector/combination-circuit-head-shape-artificial-intelligence-moral-electronic-world-illustration_456031-123.jpg?w=1380&t=st=1693542980~exp=1693543580~hmac=0a0f8e011f3834f342312bd05d20840e9dda8f9186844ae66f5752e6c4d179e2);
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+}
+ul{
+    float: right;
+    list-style-type: none;
+    margin-top: 25px;
+    position: absolute right;
+}
+ul li {
+    display: inline-block;
+    position: relative;
+    right: 0px;
+    top: 0px;
+}
+ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 5px 20px;
+    border: 1px solid transparent;
+    transition: 0.6s ease;
+}
+ul li a:hover{
+background-color: white;
+color: black;
+}
+ul li.active a{
+    background-color: white;
+    color: black;
+}
+
+.logo img{
+    position: absolute;
+    left: 2%;
+    top: 2%;
+    width: 200px;
+    border: 3px solid white;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    
+}
+.main {
+    max-width: 1200px;
+    margin: auto;
+
+}
+.title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+
+}
+.title h1{
+    color: white;
+    font-size: 70px;
+}
+
+.textBox{
+    font-size: 27px;
+    width: 100%;
+    color: white;
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.button{
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+
+}
+.btn{
+    border: 1px solid white;
+    padding: 10px 30px;
+    color: white;
+    text-decoration: none;
+    transition: 0.5s ease;
+}
+.btn:hover{
+    background-color: white;
+color: black;
+
+}
+
+
