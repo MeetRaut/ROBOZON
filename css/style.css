@@ -4,7 +4,8 @@
     font-family:sans-serif; 
 }
 header{
-    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://img.freepik.com/free-vector/combination-circuit-head-shape-artificial-intelligence-moral-electronic-world-illustration_456031-123.jpg?w=1380&t=st=1693542980~exp=1693543580~hmac=0a0f8e011f3834f342312bd05d20840e9dda8f9186844ae66f5752e6c4d179e2);
+    background-image: url('/img/background.jpg');
+    background-size: cover;
     height: 100vh;
     background-position: center;
     background-size: cover;
