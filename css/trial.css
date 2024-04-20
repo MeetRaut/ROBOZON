@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --primary-color:rgb(223, 28, 28);
+    --secondary-color:blue;
+    --grid-columns: 3; /* Number of columns */
+    --grid-row-height: 254px; /* Height of each row */
+}
+
+/* Navigation */
+body{
+  background-image: url('/img/background.jpg');
+  background-size: cover;
+}
+
+/* items */
+.button1:hover{
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 31%, rgba(7,60,155,1) 64%, rgba(0,212,255,1) 91%);
+
+    width: 150px;
+    height: 40px;
+    border-radius: 30px;
+    font-size: 20px;
+    color: aliceblue;
+    scale: 1.1;
+}
+.button1:active{
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 31%, rgba(7,60,155,1) 64%, rgba(0,212,255,1) 91%);
+
+    width: 150px;
+    height: 40px;
+    border-radius: 30px;
+    font-size: 20px;
+    color: aliceblue;
+    scale: 0.9;
+}
+
+
+
+
+
+
+
+
+.heading {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading h1 {
+    text-align: center;
+    font-size: 40px;
+    margin: 20px;
+    color: aliceblue;
+    
+}
+
+.button1{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 31%, rgba(7,60,155,1) 64%, rgba(0,212,255,1) 91%);
+
+    width: 150px;
+    height: 40px;
+    border-radius: 30px;
+    font-size: 20px;
+    color: aliceblue;
+    transition: 0.3s;
+    margin: 0px 10px;
+}
+
+
+
+
