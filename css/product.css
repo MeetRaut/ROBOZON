@@ -81,8 +81,16 @@ ul li.active a{
   border-radius: 50px;
 }
 
-/* Product list*/
+/*Title and search & filter*/
+.title_and_search{
+  display: flex;
+  justify-content: space-between;
+  font-size: 3.5rem;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+}
 
+/* Product list*/
 
 .container{
   max-width: 1500px;
@@ -93,9 +101,16 @@ ul li.active a{
 .container .title{
   font-size: 3.5rem;
   color:white;
-  margin-bottom: 3rem;
   text-transform: uppercase;
-  text-align: center;
+  /*text-align: center;*/
+}
+
+.container .search{
+  font-size: 2.2rem;
+  padding: 10px;
+  border: solid white;
+  color:rgb(153, 255, 106);
+  border-radius: 15px;
 }
 
 .container .products-container{
@@ -155,11 +170,11 @@ ul li.active a{
 
 .products-preview .preview{
   display: none;
-  padding:2rem;
+  padding:1.5rem;
   text-align: center;
   background: #fff;
   position: relative;
-  margin:2rem;
+  margin:1rem;
   width: 40rem;
 }
 
