@@ -60,8 +60,7 @@ ul li.active a{
     position: absolute;
     top: 46%;
     left: 50%;
-    transform: translate(-50%,-50%)
-
+    transform: translate(-50%,-50%);
 }
 .title h1{
     color: white;
