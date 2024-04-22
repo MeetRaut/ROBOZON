@@ -107,35 +107,8 @@ const products = [
 ];
 
 
-// For preview
-/*
-let preveiwContainer = document.querySelector('.products-preview');
-let previewBox = preveiwContainer.querySelectorAll('.preview');
 
-document.querySelectorAll('.products-container .product').forEach(product =>{
-  product.onclick = () =>{
-    preveiwContainer.style.display = 'flex';
-    let name = product.getAttribute('data-name');
-    previewBox.forEach(preview =>{
-      let target = preview.getAttribute('data-target');
-      if(name == target){
-        preview.classList.add('active');
-      }
-    });
-  };
-});
-
-previewBox.forEach(close =>{
-  close.querySelector('.fa-times').onclick = () =>{
-    close.classList.remove('active');
-    preveiwContainer.style.display = 'none';
-  };
-});
-*/
-
-// For displaying products list
-// Function to generate HTML for a product
-// Ensure that the DOM content is loaded before executing scripts
+// Displaying products
 document.addEventListener('DOMContentLoaded', function() {
   displayProducts();
 });
@@ -163,6 +136,79 @@ function displayProducts() {
   let productHTML = '';
   products.forEach(product => {
       productHTML += generateProductHTML(product);
+  });
+  // Update innerHTML of product container
+  productContainer.innerHTML = productHTML;
+}
+
+
+
+// Product preview
+let previewContainer = document.querySelector('.products-preview');
+let previewBox = previewContainer.querySelectorAll('.preview');
+
+document.querySelectorAll('.products-container .product').forEach(product => {
+  product.onclick = () => {
+    previewContainer.style.display = 'flex';
+    let name = product.getAttribute('id');
+    previewBox.forEach(preview => {
+      let target = preview.getAttribute('id');
+      if (name == target) {
+        preview.classList.add('active');
+      }
+    });
+  };
+});
+
+previewBox.forEach(close => {
+  close.querySelector('.fa-times').onclick = () => {
+    close.classList.remove('active');
+    previewContainer.style.display = 'none';
+  };
+});
+
+
+
+
+// Function to generate HTML for a product-preview
+function generateProductPreviewHTML(product) {
+  return `
+    <div class="preview" id="${product.id}">
+      <i class="fas fa-times"></i>
+      <img src="${product.img}" alt="${product.name}">
+      <h3>${product.name}</h3>
+      
+      <div class="stars">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <span>( 250 )</span>
+      </div>
+      <p class="Description">${product.description}</p>
+      <div class="price">${product.price}</div>
+      <div class="buttons">
+        <a href="#" class="buy">buy now</a>
+        <a href="#" class="cart">add to cart</a>
+      </div>
+    </div>
+  `;
+}
+
+
+// Function to display products-preview dynamically
+function displayProductPreview() {
+  const productContainer = document.querySelector('.products-preview');
+  // Check if product container exists
+  if (!productContainer) {
+    console.error("Product not found!");
+    return;
+  }
+  
+  let productHTML = '';
+  products.forEach(product => {
+      productHTML += generateProductPreviewHTML(product);
   });
   // Update innerHTML of product container
   productContainer.innerHTML = productHTML;
