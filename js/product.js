@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Product click event listener
   document.querySelectorAll('.products-container .product').forEach(product => {
     product.onclick = () => {
-      const productId = product.getAttribute('id');
+      const productId = parseInt(product.getAttribute('id')); // Convert to number
       console.log('Clicked product ID:', productId); // Log the clicked product ID
       const clickedProduct = products.find(product => product.id === productId);
       console.log(clickedProduct);
@@ -125,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
   });
 });
+
 
 // Function to generate HTML for a product
 function generateProductHTML(product) {
