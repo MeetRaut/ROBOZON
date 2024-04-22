@@ -106,8 +106,6 @@ const products = [
   },
 ];
 
-
-
 // Displaying products
 document.addEventListener('DOMContentLoaded', function() {
   displayProducts();
@@ -116,7 +114,9 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.products-container .product').forEach(product => {
     product.onclick = () => {
       const productId = product.getAttribute('id');
+      console.log('Clicked product ID:', productId); // Log the clicked product ID
       const clickedProduct = products.find(product => product.id === productId);
+      console.log(clickedProduct);
       if (clickedProduct) {
         displayProductPreview(clickedProduct);
       } else {
@@ -156,10 +156,9 @@ function displayProducts() {
 function generateProductPreviewHTML(product) {
   return `
     <div class="preview" id="${product.id}">
-      <i class="fas fa-times"></i>
+      <i class="fas fa-times close-preview"></i>
       <img src="${product.img}" alt="${product.name}">
       <h3>${product.name}</h3>
-      
       <div class="stars">
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
@@ -186,11 +185,19 @@ function displayProductPreview(product) {
     return;
   }
 
-  const productHTML = generateProductPreviewHTML(product);
-  previewContainer.innerHTML = productHTML;
-  previewContainer.style.display = 'flex';
+  // Create elements for the product preview
+  const preview = document.createElement('div');
+  preview.classList.add('preview');
+  preview.id = `preview-${product.id}`;
 
-  const closeButton = previewContainer.querySelector('.fa-times');
+  preview.innerHTML = generateProductPreviewHTML(product);
+
+  // Clear previous content and append the preview to the container
+  previewContainer.innerHTML = ''; 
+  previewContainer.appendChild(preview);
+
+  // Close preview event listener
+  const closeButton = preview.querySelector('.close-preview');
   if (closeButton) {
     closeButton.onclick = () => {
       previewContainer.style.display = 'none';
