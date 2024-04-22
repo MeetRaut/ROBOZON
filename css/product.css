@@ -245,6 +245,7 @@ ul li.active a{
   outline: .1rem solid #ccc;
   outline-offset: -1.5rem;
   cursor: pointer;
+  border-radius: 15%;
 }
 
 .container .products-container .product:hover{
@@ -293,8 +294,10 @@ ul li.active a{
   text-align: center;
   background: #fff;
   position: relative;
+  left: 30%;
   margin:1rem;
   width: 40rem;
+  border-radius: 5%;
 }
 
 .products-preview .preview.active{
@@ -324,7 +327,6 @@ ul li.active a{
 }
 
 .products-preview .preview .stars{
-  padding:1rem 0;
   font-size: 1.7rem;
 }
 
