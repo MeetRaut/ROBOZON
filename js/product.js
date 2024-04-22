@@ -111,6 +111,19 @@ const products = [
 // Displaying products
 document.addEventListener('DOMContentLoaded', function() {
   displayProducts();
+
+  // Product click event listener
+  document.querySelectorAll('.products-container .product').forEach(product => {
+    product.onclick = () => {
+      const productId = product.getAttribute('id');
+      const clickedProduct = products.find(product => product.id === productId);
+      if (clickedProduct) {
+        displayProductPreview(clickedProduct);
+      } else {
+        console.error('Product not found!');
+      }
+    };
+  });
 });
 
 // Function to generate HTML for a product
@@ -127,7 +140,6 @@ function generateProductHTML(product) {
 // Function to display products dynamically
 function displayProducts() {
   const productContainer = document.querySelector('.products-container');
-  // Check if product container exists
   if (!productContainer) {
     console.error("Product container not found!");
     return;
@@ -137,38 +149,8 @@ function displayProducts() {
   products.forEach(product => {
       productHTML += generateProductHTML(product);
   });
-  // Update innerHTML of product container
   productContainer.innerHTML = productHTML;
 }
-
-
-
-// Product preview
-let previewContainer = document.querySelector('.products-preview');
-let previewBox = previewContainer.querySelectorAll('.preview');
-
-document.querySelectorAll('.products-container .product').forEach(product => {
-  product.onclick = () => {
-    previewContainer.style.display = 'flex';
-    let name = product.getAttribute('id');
-    previewBox.forEach(preview => {
-      let target = preview.getAttribute('id');
-      if (name == target) {
-        preview.classList.add('active');
-      }
-    });
-  };
-});
-
-previewBox.forEach(close => {
-  close.querySelector('.fa-times').onclick = () => {
-    close.classList.remove('active');
-    previewContainer.style.display = 'none';
-  };
-});
-
-
-
 
 // Function to generate HTML for a product-preview
 function generateProductPreviewHTML(product) {
@@ -196,20 +178,22 @@ function generateProductPreviewHTML(product) {
   `;
 }
 
-
-// Function to display products-preview dynamically
-function displayProductPreview() {
-  const productContainer = document.querySelector('.products-preview');
-  // Check if product container exists
-  if (!productContainer) {
-    console.error("Product not found!");
+// Function to display product preview for the clicked product
+function displayProductPreview(product) {
+  const previewContainer = document.querySelector('.products-preview');
+  if (!previewContainer) {
+    console.error("Product preview container not found!");
     return;
   }
-  
-  let productHTML = '';
-  products.forEach(product => {
-      productHTML += generateProductPreviewHTML(product);
-  });
-  // Update innerHTML of product container
-  productContainer.innerHTML = productHTML;
+
+  const productHTML = generateProductPreviewHTML(product);
+  previewContainer.innerHTML = productHTML;
+  previewContainer.style.display = 'flex';
+
+  const closeButton = previewContainer.querySelector('.fa-times');
+  if (closeButton) {
+    closeButton.onclick = () => {
+      previewContainer.style.display = 'none';
+    };
+  }
 }
