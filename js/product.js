@@ -135,10 +135,16 @@ previewBox.forEach(close =>{
 
 // For displaying products list
 // Function to generate HTML for a product
+// Ensure that the DOM content is loaded before executing scripts
+document.addEventListener('DOMContentLoaded', function() {
+  displayProducts();
+});
+
+// Function to generate HTML for a product
 function generateProductHTML(product) {
   return `
       <div class="product" id="${product.id}">
-          <img src="${product.img}">
+          <img src="${product.img}" alt="${product.name}">
           <h3>${product.name}</h3>
           <div class="price">${product.price}</div>
       </div>
@@ -147,13 +153,17 @@ function generateProductHTML(product) {
 
 // Function to display products dynamically
 function displayProducts() {
-  const productContainer = document.getElementsByClassName('product-container');
+  const productContainer = document.querySelector('.products-container');
+  // Check if product container exists
+  if (!productContainer) {
+    console.error("Product container not found!");
+    return;
+  }
+  
   let productHTML = '';
   products.forEach(product => {
       productHTML += generateProductHTML(product);
   });
+  // Update innerHTML of product container
   productContainer.innerHTML = productHTML;
 }
-
-// Call the displayProducts function to display products
-displayProducts();
