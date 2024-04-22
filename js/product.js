@@ -133,7 +133,7 @@ function generateProductHTML(product) {
       <div class="product" id="${product.id}">
           <img src="${product.img}" alt="${product.name}">
           <h3>${product.name}</h3>
-          <div class="price">${product.price}</div>
+          <div class="price">$${product.price}</div>
       </div>
   `;
 }
@@ -169,7 +169,7 @@ function generateProductPreviewHTML(product) {
         <span>( 250 )</span>
       </div>
       <p class="Description">${product.description}</p>
-      <div class="price">${product.price}</div>
+      <div class="price">$${product.price}</div>
       <div class="buttons">
         <a href="#" class="buy">buy now</a>
         <a href="#" class="cart">add to cart</a>
@@ -188,14 +188,15 @@ function displayProductPreview(product) {
 
   // Create elements for the product preview
   const preview = document.createElement('div');
-  preview.classList.add('preview');
-  preview.id = `preview-${product.id}`;
 
   preview.innerHTML = generateProductPreviewHTML(product);
 
   // Clear previous content and append the preview to the container
   previewContainer.innerHTML = ''; 
   previewContainer.appendChild(preview);
+
+  // Make sure the preview container is visible
+  previewContainer.style.display = 'block';
 
   // Close preview event listener
   const closeButton = preview.querySelector('.close-preview');
