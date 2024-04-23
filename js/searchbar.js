@@ -41,17 +41,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Search input event listener
   searchInput.addEventListener('input', function() {
-    const searchTerm = searchInput.value.toLowerCase();
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    filterProducts(searchTerm);
     const selectedCategory = dropdownText.textContent.toLowerCase();
 
-    const filteredProducts = products.filter(product => {
-      // Check if the product name or category matches the search term and selected category
-      return (product.name.toLowerCase().includes(searchTerm) || 
-              product.category.toLowerCase().includes(searchTerm)) &&
-             (selectedCategory === 'everything' || product.category.toLowerCase() === selectedCategory);
-    });
+    // Function to filter products based on search term
+    function filterProducts(searchTerm) {
+      const productContainers = document.querySelectorAll('.product');
 
-    displayFilteredProducts(filteredProducts);
+      productContainers.forEach(container => {
+          const productName = container.querySelector('h3').textContent.toLowerCase();
+
+          if (productName.includes(searchTerm)) {
+              container.style.display = ''; // Show product if it matches search term
+          } else {
+              container.style.display = 'none'; // Hide product if it doesn't match search term
+          }
+      });
+    }
+
+    //displayFilteredProducts(filteredProducts);
   });
 
   // Dropdown list item click event listener
