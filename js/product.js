@@ -1,3 +1,5 @@
+// product.js
+
 // list of products
 const products = [
   {

@@ -93,7 +93,7 @@ ul li.active a{
 /* Search bar*/
 :root {
   --blue: #9ab3f5;
-  --purple: #9a1663;
+  --purple: #3a78c6;
   --white: #ffffff;
 
   --shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
@@ -121,6 +121,7 @@ ul li.active a{
   border: 1px solid var(--white);
   box-shadow: var(--shadow);
   cursor: pointer;
+  
 }
 
 .dropdown-text {
@@ -146,6 +147,7 @@ ul li.active a{
   overflow: hidden;
   background-color: var(--purple);
   transition: max-height 0.5s;
+  backdrop-filter: blur(50px); /* Adjust the blur strength as needed */
 }
 
 .dropdown-list-item {
@@ -233,8 +235,8 @@ ul li.active a{
 
 .container .products-container{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-  gap:2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 }
 
 .container .products-container .product{
@@ -246,6 +248,7 @@ ul li.active a{
   outline-offset: -1.5rem;
   cursor: pointer;
   border-radius: 15%;
+  max-width: 30rem;
 }
 
 .container .products-container .product:hover{

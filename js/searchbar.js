@@ -1,3 +1,5 @@
+// searchbar.js
+
 let dropdownBtnText = document.getElementById("drop-text");
 let span = document.getElementById("span");
 let icon = document.getElementById("icon");
@@ -83,4 +85,19 @@ function displayFilteredProducts(filteredProducts) {
       productHTML += generateProductHTML(product);
   });
   productContainer.innerHTML = productHTML;
+
+  // Reattach event listeners for displaying product previews
+  document.querySelectorAll('.products-container .product').forEach(product => {
+    product.onclick = () => {
+      const productId = parseInt(product.getAttribute('id')); // Convert to number
+      console.log('Clicked product ID:', productId); // Log the clicked product ID
+      const clickedProduct = filteredProducts.find(product => product.id === productId);
+      console.log(clickedProduct);
+      if (clickedProduct) {
+        displayProductPreview(clickedProduct);
+      } else {
+        console.error('Product not found!');
+      }
+    };
+  });
 }
